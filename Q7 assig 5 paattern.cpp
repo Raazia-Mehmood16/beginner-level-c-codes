@@ -1,0 +1,156 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char op;
+    cout << "Hello Dear! Please enter an alphabet from the given 10 options:" << endl;
+    cout << "( C, E, F, H, I, L, O, T, U, V ): ";
+    cin >> op;
+    cout << endl << "-----------------------------------------------------" << endl << endl;
+
+    switch (op) {
+        case 'C': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 9; j++) {
+                    if ((i == 1 || i == 7) && j > 2 && j < 8)
+                        cout << "+";
+                    else if (j == 2 && i > 1 && i < 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+
+
+
+
+
+
+
+
+
+                        
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'E': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (j == 1 || i == 1 || i == 4 || i == 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'F': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (j == 1 || i == 1 || i == 4)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'H': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (j == 1 || j == 7 || i == 4)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'I': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (i == 1 || i == 7 || j == 4)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'L': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (j == 1 || i == 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'O': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 9; j++) {
+                    if ((i == 1 || i == 7) && j > 2 && j < 8)
+                        cout << "+";
+                    else if ((j == 2 || j == 8) && i > 1 && i < 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'T': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if (i == 1 || j == 4)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'U': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 7; j++) {
+                    if ((j == 1 || j == 7) && i < 7)
+                        cout << "+";
+                    else if (i == 7 && j > 1 && j < 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        case 'V': {
+            for (int i = 1; i <= 7; i++) {
+                for (int j = 1; j <= 13; j++) {
+                    if ((j == i || j == 14 - i) && i <= 7)
+                        cout << "+";
+                    else
+                        cout << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        default: {
+            cout << "ERROR! Please restart the program and enter a valid letter from he options." << endl;
+            return 1;
+        }
+    }
+
+    cout << endl << "Thank you for using the program!" << endl;
+    return 0;
+}

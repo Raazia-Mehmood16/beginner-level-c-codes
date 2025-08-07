@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int m, n;
+
+    cout<<endl;
+    cout << "Please Enter number of rows (m): ";
+    cin >> m;
+    cout << "Please Enter number of columns (n): ";
+    cin >> n;
+     cout<<endl<<"-----------------------------------------------------"<<endl<<endl;
+    
+    
+    int matrix[m][n]; 
+    int spiral[10000]; // Array to store the elements in spiral order
+    int rearranged[10000]; // Array to store the rearranged numbers
+    int sInd = 0;
+    
+    cout << "Enter the matrix elements:\n";
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    // Step 3: Perform spiral order traversal
+
+    int  rLeft = 0, rRight = n - 1;
+    
+     for(int cTop=0,cBottom =m-1 ; cTop <= cBottom && rLeft <= rRight;) {
+        // Traverse from left to right
+        for (int i = rLeft; i <= rRight; i++) {
+            spiral[sInd++] = matrix[cTop][i];
+        }
+        cTop++;
+        
+        // Traverse from top to bottom
+        for (int i = cTop; i <= cBottom; i++) {
+            spiral[sInd++] = matrix[i][rRight];
+        }
+        rRight--;
+        
+        // Traverse from right to left
+        if (cTop <= cBottom) {
+            for (int i = rRight; i >= rLeft; i--) {
+                spiral[sInd++] = matrix[cBottom][i];
+            }
+            cBottom--;
+        }
+        
+        // Traverse from bottom to top
+        if (rLeft <= rRight) {
+            for (int i = cBottom; i >= cTop; i--) {
+                spiral[sInd++] = matrix[i][rLeft];
+            }
+            rLeft++;
+        }
+    }
+
+    // Step 4: Rearrange by parity
+    int eInd = 0, oInd = 0;
+    
+    // First, put even numbers in the rearranged array
+    for (int i = 0; i < sInd; i++) {
+        if (spiral[i] % 2 == 0) {
+            rearranged[eInd++] = spiral[i];
+        }
+    }
+    
+    // Then, put odd numbers in the rearranged array
+    oInd = eInd; // Start adding odd numbers after even ones
+    for (int i = 0; i < sInd; i++) {
+        if (spiral[i] % 2 != 0) {
+            rearranged[oInd++] = spiral[i];
+        }
+    }
+
+    // Output the results
+    cout<< endl;
+    cout << "Spiral Order: ";
+    for (int i = 0; i < sInd; i++) {
+        cout << spiral[i] << " ";
+    }
+    cout << endl<<endl;
+    
+    cout << "Rearranged Array: ";
+    for (int i = 0; i < oInd; i++) {
+        cout << rearranged[i] << " ";
+    }
+    cout << endl;
+    cout<<endl<<"-----------------------------------------------------"<<endl<<endl;
+    cout<< endl;
+    return 0;
+}

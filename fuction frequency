@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    char str[100];
+    char freq[26][2] = {0};  // 2D array to store characters and their frequencies
+
+    cout << "Enter a string: ";
+    cin.getline(str, 100);
+
+    for (int i = 0; i < strlen(str); i++) {
+        if (isalpha(str[i])) {
+            char ch = tolower(str[i]);
+            int idx = ch - 'a';
+            freq[idx][0] = ch;
+            freq[idx][1]++;
+        }
+    }
+
+    cout << "Character frequencies:\n";
+    for (int i = 0; i < 26; i++) {
+        if (freq[i][1] > 0) {
+            cout << freq[i][0] << " -> " << int(freq[i][1]) << endl;
+        }
+    }
+
+    return 0;
+}
